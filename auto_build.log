@@ -1,0 +1,741 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                                              
+                                                                              
+2019-05-15 04:30:01 检测的网关名为gw
+2019-05-15 04:30:02 获取的v2ray服务器IP地址为45.32.42.33
+2019-05-15 04:30:02 收集vultr的服务器列表
+2019-05-15 04:30:07 gw 调用API成功，开始执行监控程序
+2019-05-15 04:30:07 获取的v2ray服务器subid为 24749929
+2019-05-15 04:30:07 获取的v2ray服务器DCID为 25
+2019-05-15 04:30:07 获取的v2ray服务器label为gmasterw
+2019-05-15 04:30:25 获取v2ray服务器宽带使用率为 60351207438 字节
+2019-05-15 04:30:25 获取的宽带使用率为56 G
+2019-05-15 04:30:25 触发重新搭建服务器条件,同时将keepalived服务停用
+2019-05-15 04:30:25 正在停用keepalived服务
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-15 04:30:27 gw 的keepalived服务停用成功
+2019-05-15 04:30:27 正在销毁v2ray服务器
+2019-05-15 04:30:31 等待删除gmasterw
+2019-05-15 04:31:01 删除gmasterw 成功
+2019-05-15 04:31:01 获取gw 使用的v2ray服务器的label	gmasterw
+2019-05-15 04:31:01 重新安装v2ray服务器
+2019-05-15 04:31:08 installing server......
+2019-05-15 04:31:08 正在安装的v2ray服务器的subid为24759974
+2019-05-15 04:31:31 新建的v2ray服务器IP地址为45.32.42.33
+2019-05-15 04:31:34 获取的v2ray服务器的密码为S3.oZcY*p=2DKY(5
+2019-05-15 04:31:34 sleep 60
+2019-05-15 04:32:35 检查v2ray服务器ip地址存在！
+2019-05-15 04:32:35 ------------------------
+2019-05-15 04:32:35 清理本地已经存在45.32.42.33 的密钥
+# Host 45.32.42.33 found: line 12
+/root/.ssh/known_hosts updated.
+Original contents retained as /root/.ssh/known_hosts.old
+2019-05-15 04:32:35 重新添加45.32.42.33 的密钥，正在添加密钥！
+2019-05-15 04:32:36 v2ray_server安装ssh密钥
+2019-05-15 04:32:39 ------------
+2019-05-15 04:32:39 正在配置ansible主控端
+2019-05-15 04:32:39 gmasterw 已存在
+2019-05-15 04:32:39 主控端配置完毕！
+2019-05-15 04:32:39 ------------
+2019-05-15 04:32:39 测试ansible被控端
+45.32.42.33 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2019-05-15 04:32:53 主控端配置成功！
+2019-05-15 04:32:53 -------------------
+2019-05-15 04:32:53 开始安装v2ray服务端,并且进行配置，使用ansible的script模块拷贝配置文件
+45.32.42.33 | CHANGED => {
+    "changed": true, 
+    "rc": 0, 
+    "stderr": "Shared connection to 45.32.42.33 closed.\r\n", 
+    "stderr_lines": [
+        "Shared connection to 45.32.42.33 closed."
+    ], 
+    "stdout": "安装v2ray服务端\r\nbash <(curl -L -s https://install.direct/go.sh)\r\n\u001b[36mInstalling V2Ray v4.18.0 on x86_64\u001b[0m\r\n\u001b[36mDownloading V2Ray: https://github.com/v2ray/v2ray-core/releases/download/v4.18.0/v2ray-linux-64.zip\u001b[0m\r\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100   608    0   608    0     0   1036      0 --:--:-- --:--:-- --:--:--  1037\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  1 10.5M    1  126k    0     0  73838      0  0:02:29  0:00:01  0:02:28  126k\r 60 10.5M   60 6522k    0     0  2386k      0  0:00:04  0:00:02  0:00:02 3298k\r100 10.5M  100 10.5M    0     0  3715k      0  0:00:02  0:00:02 --:--:-- 5020k\r\n\u001b[36mUpdating software repo\u001b[0m\r\n\u001b[36mInstalling unzip\u001b[0m\r\ndebconf: unable to initialize frontend: Dialog\r\ndebconf: (TERM is not set, so the dialog frontend is not usable.)\r\ndebconf: falling back to frontend: Readline\r\ndebconf: unable to initialize frontend: Readline\r\ndebconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.20.2 /usr/local/share/perl/5.20.2 /usr/lib/x86_64-linux-gnu/perl5/5.20 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.20 /usr/share/perl/5.20 /usr/local/lib/site_perl .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7, <> line 1.)\r\ndebconf: falling back to frontend: Teletype\r\nSelecting previously unselected package unzip.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 21827 files and directories currently installed.)\r\nPreparing to unpack .../unzip_6.0-16+deb8u3_amd64.deb ...\r\nUnpacking unzip (6.0-16+deb8u3) ...\r\nProcessing triggers for mime-support (3.58) ...\r\nProcessing triggers for man-db (2.7.0.2-5) ...\r\nSetting up unzip (6.0-16+deb8u3) ...\r\n\u001b[36mExtracting V2Ray package to /tmp/v2ray.\u001b[0m\r\nArchive:  /tmp/v2ray/v2ray.zip\r\n  inflating: /tmp/v2ray/config.json  \r\n   creating: /tmp/v2ray/doc/\r\n  inflating: /tmp/v2ray/doc/readme.md  \r\n  inflating: /tmp/v2ray/geoip.dat    \r\n  inflating: /tmp/v2ray/geosite.dat  \r\n   creating: /tmp/v2ray/systemd/\r\n  inflating: /tmp/v2ray/systemd/v2ray.service  \r\n   creating: /tmp/v2ray/systemv/\r\n  inflating: /tmp/v2ray/systemv/v2ray  \r\n  inflating: /tmp/v2ray/v2ctl        \r\n extracting: /tmp/v2ray/v2ctl.sig    \r\n  inflating: /tmp/v2ray/v2ray        \r\n extracting: /tmp/v2ray/v2ray.sig    \r\n  inflating: /tmp/v2ray/vpoint_socks_vmess.json  \r\n  inflating: /tmp/v2ray/vpoint_vmess_freedom.json  \r\n\u001b[36mShutting down V2Ray service.\u001b[0m\r\nFailed to stop v2ray.service: Unit v2ray.service not loaded.\r\n\u001b[33mFailed to shutdown V2Ray service.\u001b[0m\r\n\u001b[36mPORT:28534\u001b[0m\r\n\u001b[36mUUID:780d60aa-4f5c-407b-a370-a6390866e286\u001b[0m\r\nCreated symlink from /etc/systemd/system/multi-user.target.wants/v2ray.service to /etc/systemd/system/v2ray.service.\r\n\u001b[36mRestarting V2Ray service.\u001b[0m\r\n\u001b[32mV2Ray v4.18.0 is installed.\u001b[0m\r\nv2ray服务端安装成功\r\ncp /etc/v2ray/config.json /root/\r\nconfig文件备份成功\r\n", 
+    "stdout_lines": [
+        "安装v2ray服务端", 
+        "bash <(curl -L -s https://install.direct/go.sh)", 
+        "\u001b[36mInstalling V2Ray v4.18.0 on x86_64\u001b[0m", 
+        "\u001b[36mDownloading V2Ray: https://github.com/v2ray/v2ray-core/releases/download/v4.18.0/v2ray-linux-64.zip\u001b[0m", 
+        "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", 
+        "                                 Dload  Upload   Total   Spent    Left  Speed", 
+        "", 
+        "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", 
+        "100   608    0   608    0     0   1036      0 --:--:-- --:--:-- --:--:--  1037", 
+        "", 
+        "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", 
+        "  1 10.5M    1  126k    0     0  73838      0  0:02:29  0:00:01  0:02:28  126k", 
+        " 60 10.5M   60 6522k    0     0  2386k      0  0:00:04  0:00:02  0:00:02 3298k", 
+        "100 10.5M  100 10.5M    0     0  3715k      0  0:00:02  0:00:02 --:--:-- 5020k", 
+        "\u001b[36mUpdating software repo\u001b[0m", 
+        "\u001b[36mInstalling unzip\u001b[0m", 
+        "debconf: unable to initialize frontend: Dialog", 
+        "debconf: (TERM is not set, so the dialog frontend is not usable.)", 
+        "debconf: falling back to frontend: Readline", 
+        "debconf: unable to initialize frontend: Readline", 
+        "debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.20.2 /usr/local/share/perl/5.20.2 /usr/lib/x86_64-linux-gnu/perl5/5.20 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.20 /usr/share/perl/5.20 /usr/local/lib/site_perl .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7, <> line 1.)", 
+        "debconf: falling back to frontend: Teletype", 
+        "Selecting previously unselected package unzip.", 
+        "(Reading database ... ", 
+        "(Reading database ... 5%", 
+        "(Reading database ... 10%", 
+        "(Reading database ... 15%", 
+        "(Reading database ... 20%", 
+        "(Reading database ... 25%", 
+        "(Reading database ... 30%", 
+        "(Reading database ... 35%", 
+        "(Reading database ... 40%", 
+        "(Reading database ... 45%", 
+        "(Reading database ... 50%", 
+        "(Reading database ... 55%", 
+        "(Reading database ... 60%", 
+        "(Reading database ... 65%", 
+        "(Reading database ... 70%", 
+        "(Reading database ... 75%", 
+        "(Reading database ... 80%", 
+        "(Reading database ... 85%", 
+        "(Reading database ... 90%", 
+        "(Reading database ... 95%", 
+        "(Reading database ... 100%", 
+        "(Reading database ... 21827 files and directories currently installed.)", 
+        "Preparing to unpack .../unzip_6.0-16+deb8u3_amd64.deb ...", 
+        "Unpacking unzip (6.0-16+deb8u3) ...", 
+        "Processing triggers for mime-support (3.58) ...", 
+        "Processing triggers for man-db (2.7.0.2-5) ...", 
+        "Setting up unzip (6.0-16+deb8u3) ...", 
+        "\u001b[36mExtracting V2Ray package to /tmp/v2ray.\u001b[0m", 
+        "Archive:  /tmp/v2ray/v2ray.zip", 
+        "  inflating: /tmp/v2ray/config.json  ", 
+        "   creating: /tmp/v2ray/doc/", 
+        "  inflating: /tmp/v2ray/doc/readme.md  ", 
+        "  inflating: /tmp/v2ray/geoip.dat    ", 
+        "  inflating: /tmp/v2ray/geosite.dat  ", 
+        "   creating: /tmp/v2ray/systemd/", 
+        "  inflating: /tmp/v2ray/systemd/v2ray.service  ", 
+        "   creating: /tmp/v2ray/systemv/", 
+        "  inflating: /tmp/v2ray/systemv/v2ray  ", 
+        "  inflating: /tmp/v2ray/v2ctl        ", 
+        " extracting: /tmp/v2ray/v2ctl.sig    ", 
+        "  inflating: /tmp/v2ray/v2ray        ", 
+        " extracting: /tmp/v2ray/v2ray.sig    ", 
+        "  inflating: /tmp/v2ray/vpoint_socks_vmess.json  ", 
+        "  inflating: /tmp/v2ray/vpoint_vmess_freedom.json  ", 
+        "\u001b[36mShutting down V2Ray service.\u001b[0m", 
+        "Failed to stop v2ray.service: Unit v2ray.service not loaded.", 
+        "\u001b[33mFailed to shutdown V2Ray service.\u001b[0m", 
+        "\u001b[36mPORT:28534\u001b[0m", 
+        "\u001b[36mUUID:780d60aa-4f5c-407b-a370-a6390866e286\u001b[0m", 
+        "Created symlink from /etc/systemd/system/multi-user.target.wants/v2ray.service to /etc/systemd/system/v2ray.service.", 
+        "\u001b[36mRestarting V2Ray service.\u001b[0m", 
+        "\u001b[32mV2Ray v4.18.0 is installed.\u001b[0m", 
+        "v2ray服务端安装成功", 
+        "cp /etc/v2ray/config.json /root/", 
+        "config文件备份成功"
+    ]
+}
+45.32.42.33 | CHANGED => {
+    "changed": true, 
+    "checksum": "642c4f754bbfa22a465305bf9f28f0be6b8d51d3", 
+    "dest": "/etc/v2ray/config.json", 
+    "gid": 0, 
+    "group": "root", 
+    "md5sum": "e1c9ae8913976ca140c692152b5ade95", 
+    "mode": "0644", 
+    "owner": "root", 
+    "size": 1448, 
+    "src": "/root/.ansible/tmp/ansible-tmp-1557909192.52-258645590274480/source", 
+    "state": "file", 
+    "uid": 0
+}
+2019-05-15 04:33:23 v2ray服务端安装完毕！
+2019-05-15 04:33:23 获取v2ray服务器的IP\PORT\ID
+45.32.42.33 | CHANGED | rc=0 >>
+{
+  "inbounds": [{
+    "port": 28534,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "780d60aa-4f5c-407b-a370-a6390866e286",
+          "level": 1,
+          "alterId": 64
+        }
+      ]
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  },{
+    "protocol": "blackhole",
+    "settings": {},
+    "tag": "blocked"
+  }],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
+}
+45.32.42.33 | CHANGED | rc=0 >>
+{
+  "log" : {
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log",
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "port": 31139,
+    "protocol": "vmess", 
+    "settings": {
+      "clients": [
+        {
+          "id": "805ed8a8-7967-49c0-9f5d-057e86920c49",
+          "level": 1,
+          "alterId": 64
+        }
+      ],
+      "detour":{
+        "to":"dynamicPort"
+      }
+    },
+    "streamSettings":{
+      "network":"kcp"
+    }
+  },
+  "inboundDetour":[
+    {
+      "protocol": "vmess",
+      "port": "10000-20000",
+      "tag": "dynamicPort",       
+      "settings": {
+        "default": {
+          "level": 1,
+          "alterId": 32
+        }
+      },
+      "allocate": {            
+        "strategy": "random",  
+        "concurrency": 2,      
+        "refresh": 3           
+      },
+      "streamSettings": {
+        "network": "kcp"
+      }
+    }
+  ],
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
+  },
+  "outboundDetour": [
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+ "transport":{
+      "tcpSettings":{
+         "connectionReuse":true
+      },
+      "kcpSettings":{ 
+         "mtu":1350,
+         "tti":20,
+         "uplinkCapacity":100,
+         "downlinkCapacity":100,
+         "congestion":false,
+         "readBufferSize":5,
+         "writeBufferSize":5,
+         "header":{
+            "type":"utp"
+         }
+      }
+   }
+}
+2019-05-15 04:33:50 45.32.42.33     "port": 28534,           "id": "780d60aa-4f5c-407b-a370-a6390866e286",
+2019-05-15 04:33:50 正在修改-----------------
+45.32.42.33 | CHANGED | rc=0 >>
+
+45.32.42.33 | CHANGED | rc=0 >>
+
+45.32.42.33 | CHANGED | rc=0 >>
+
+45.32.42.33 | CHANGED | rc=0 >>
+
+2019-05-15 04:34:14 修改完毕，v2ray服务端配置成功!重启v2ray服务器
+45.32.42.33 | CHANGED | rc=0 >>
+
+2019-05-15 04:34:20 v2ray服务重启成功！
+2019-05-15 04:34:20 -------------------
+2019-05-15 04:35:20 更新局域网的网关服务
+2019-05-15 04:35:20 正在验证gw 分组是否存在,请稍后...
+2019-05-15 04:35:21 验证成功gw分组存在！分组名为gw
+2019-05-15 04:36:21 正在验证gmasterw 分组是否存在,请稍后...
+2019-05-15 04:36:29 验证成功gmasterw 分组存在！分组名为gmasterw
+2019-05-15 04:36:37 v2ray_server的IP是45.32.42.33
+2019-05-15 04:36:43     "port": 28534,
+2019-05-15 04:36:47           "id": "780d60aa-4f5c-407b-a370-a6390866e286",
+2019-05-15 04:36:47 下一步需要修改gw 组的配置文件，现在正在形成参数
+2019-05-15 04:36:47 修改gw的配置文件/etc/v2ray/config.json,/opt/v2ray-firewall
+2019-05-15 04:36:47 1.拼接ip地址
+2019-05-15 04:36:47 "address":"45.32.42.33",
+2019-05-15 04:36:47 2.拼接端口号
+2019-05-15 04:36:47 "port": 28534,
+2019-05-15 04:36:47 3.拼接id
+2019-05-15 04:36:47 "id": "780d60aa-4f5c-407b-a370-a6390866e286",
+2019-05-15 04:36:47 执行修改局域网GW的配置文件
+2019-05-15 04:36:47 配置ip地址
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-15 04:36:50 配置端口
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-15 04:36:51 配置id
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-15 04:36:53 配置防火墙
+2019-05-15 04:36:53 1.拼接防火墙
+2019-05-15 04:36:53 iptables -t nat -A V2RAY -d 45.32.42.33 -j RETURN
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-15 04:36:54 重启gw的v2ray服务
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-15 04:36:58 服务重启成功！
+2019-05-15 04:36:58 配置完毕！
+                                                                              
+2019-05-15 04:36:58 检测的网关名为ggww
+2019-05-15 04:37:00 获取的v2ray服务器IP地址为45.76.219.250
+2019-05-15 04:37:00 收集vultr的服务器列表
+2019-05-15 04:37:05 ggww 调用API成功，开始执行监控程序
+2019-05-15 04:37:05 获取的v2ray服务器subid为 24749973
+2019-05-15 04:37:05 获取的v2ray服务器DCID为 25
+2019-05-15 04:37:05 获取的v2ray服务器label为gslavew
+2019-05-15 04:37:07 获取v2ray服务器宽带使用率为 367680538 字节
+2019-05-15 04:37:07 获取的宽带使用率为0 G
+2019-05-15 04:37:07 流量小于50G，监控结束！
+                                                                              
+2019-05-15 04:37:07 检测的网关名为dns
+2019-05-15 04:37:09 获取的v2ray服务器IP地址为108.160.133.156
+2019-05-15 04:37:09 收集vultr的服务器列表
+2019-05-15 04:37:15 dns 调用API成功，开始执行监控程序
+2019-05-15 04:37:15 获取的v2ray服务器subid为 24750017
+2019-05-15 04:37:15 获取的v2ray服务器DCID为 25
+2019-05-15 04:37:15 获取的v2ray服务器label为ddnnss
+2019-05-15 04:37:19 获取v2ray服务器宽带使用率为 15664097 字节
+2019-05-15 04:37:19 获取的宽带使用率为0 G
+2019-05-15 04:37:19 流量小于50G，监控结束！
+                                                                              
+2019-05-15 04:37:19 检测的网关名为wifigw
+2019-05-15 04:37:21 获取的v2ray服务器IP地址为202.182.100.205
+2019-05-15 04:37:21 收集vultr的服务器列表
+2019-05-15 04:37:23 wifigw 调用API成功，开始执行监控程序
+2019-05-15 04:37:23 获取的v2ray服务器subid为 24750075
+2019-05-15 04:37:23 获取的v2ray服务器DCID为 25
+2019-05-15 04:37:23 获取的v2ray服务器label为wimasterfi
+2019-05-15 04:37:28 获取v2ray服务器宽带使用率为 3601931 字节
+2019-05-15 04:37:28 获取的宽带使用率为0 G
+2019-05-15 04:37:28 流量小于50G，监控结束！
+                                                                              
+2019-05-15 04:37:28 检测的网关名为wifiggww
+2019-05-15 04:37:30 获取的v2ray服务器IP地址为108.61.162.89
+2019-05-15 04:37:30 收集vultr的服务器列表
+2019-05-15 04:37:32 wifiggww 调用API成功，开始执行监控程序
+2019-05-15 04:37:32 获取的v2ray服务器subid为 24759568
+2019-05-15 04:37:32 获取的v2ray服务器DCID为 25
+2019-05-15 04:37:32 获取的v2ray服务器label为wislavefi
+2019-05-15 04:37:34 获取v2ray服务器宽带使用率为  字节
+2019-05-15 04:37:34 获取的宽带使用率为 G
+2019-05-15 04:37:34 流量小于50G，监控结束！
+                                                                              
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                                              
+                                                                              
+2019-05-16 04:30:01 检测的网关名为gw
+2019-05-16 04:30:03 获取的v2ray服务器IP地址为45.32.42.33
+2019-05-16 04:30:03 收集vultr的服务器列表
+2019-05-16 04:30:15 gw 调用API成功，开始执行监控程序
+2019-05-16 04:30:15 获取的v2ray服务器subid为 24759974
+2019-05-16 04:30:15 获取的v2ray服务器DCID为 25
+2019-05-16 04:30:15 获取的v2ray服务器label为gmasterw
+2019-05-16 04:30:17 获取v2ray服务器宽带使用率为 133456296899 字节
+2019-05-16 04:30:17 获取的宽带使用率为124 G
+2019-05-16 04:30:17 触发重新搭建服务器条件,同时将keepalived服务停用
+2019-05-16 04:30:17 正在停用keepalived服务
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-16 04:30:18 gw 的keepalived服务停用成功
+2019-05-16 04:30:18 正在销毁v2ray服务器
+2019-05-16 04:30:23 等待删除gmasterw
+2019-05-16 04:30:53 删除gmasterw 成功
+2019-05-16 04:30:53 获取gw 使用的v2ray服务器的label	gmasterw
+2019-05-16 04:30:53 重新安装v2ray服务器
+2019-05-16 04:30:56 installing server......
+2019-05-16 04:30:56 正在安装的v2ray服务器的subid为24784565
+2019-05-16 04:31:23 新建的v2ray服务器IP地址为45.32.42.33
+2019-05-16 04:31:30 获取的v2ray服务器的密码为b]B2#8=S[d37+GZK
+2019-05-16 04:31:30 sleep 60
+2019-05-16 04:32:31 检查v2ray服务器ip地址存在！
+2019-05-16 04:32:31 ------------------------
+2019-05-16 04:32:31 清理本地已经存在45.32.42.33 的密钥
+# Host 45.32.42.33 found: line 15
+/root/.ssh/known_hosts updated.
+Original contents retained as /root/.ssh/known_hosts.old
+2019-05-16 04:32:31 重新添加45.32.42.33 的密钥，正在添加密钥！
+2019-05-16 04:32:33 v2ray_server安装ssh密钥
+2019-05-16 04:32:35 ------------
+2019-05-16 04:32:35 正在配置ansible主控端
+2019-05-16 04:32:35 gmasterw 已存在
+2019-05-16 04:32:35 主控端配置完毕！
+2019-05-16 04:32:35 ------------
+2019-05-16 04:32:35 测试ansible被控端
+45.32.42.33 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2019-05-16 04:32:46 主控端配置成功！
+2019-05-16 04:32:46 -------------------
+2019-05-16 04:32:46 开始安装v2ray服务端,并且进行配置，使用ansible的script模块拷贝配置文件
+45.32.42.33 | CHANGED => {
+    "changed": true, 
+    "rc": 0, 
+    "stderr": "Shared connection to 45.32.42.33 closed.\r\n", 
+    "stderr_lines": [
+        "Shared connection to 45.32.42.33 closed."
+    ], 
+    "stdout": "安装v2ray服务端\r\nbash <(curl -L -s https://install.direct/go.sh)\r\n\u001b[36mInstalling V2Ray v4.18.0 on x86_64\u001b[0m\r\n\u001b[36mDownloading V2Ray: https://github.com/v2ray/v2ray-core/releases/download/v4.18.0/v2ray-linux-64.zip\u001b[0m\r\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100   608    0   608    0     0   1193      0 --:--:-- --:--:-- --:--:--  1194\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0 10.5M    0 50738    0     0  31088      0  0:05:56  0:00:01  0:05:55 54439\r 10 10.5M   10 1103k    0     0   426k      0  0:00:25  0:00:02  0:00:23  584k\r 93 10.5M   93  9.8M    0     0  2765k      0  0:00:03  0:00:03 --:--:-- 3421k\r100 10.5M  100 10.5M    0     0  2959k      0  0:00:03  0:00:03 --:--:-- 3661k\r\n\u001b[36mUpdating software repo\u001b[0m\r\n\u001b[36mInstalling unzip\u001b[0m\r\ndebconf: unable to initialize frontend: Dialog\r\ndebconf: (TERM is not set, so the dialog frontend is not usable.)\r\ndebconf: falling back to frontend: Readline\r\ndebconf: unable to initialize frontend: Readline\r\ndebconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.20.2 /usr/local/share/perl/5.20.2 /usr/lib/x86_64-linux-gnu/perl5/5.20 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.20 /usr/share/perl/5.20 /usr/local/lib/site_perl .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7, <> line 1.)\r\ndebconf: falling back to frontend: Teletype\r\nSelecting previously unselected package unzip.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 21827 files and directories currently installed.)\r\nPreparing to unpack .../unzip_6.0-16+deb8u3_amd64.deb ...\r\nUnpacking unzip (6.0-16+deb8u3) ...\r\nProcessing triggers for mime-support (3.58) ...\r\nProcessing triggers for man-db (2.7.0.2-5) ...\r\nSetting up unzip (6.0-16+deb8u3) ...\r\n\u001b[36mExtracting V2Ray package to /tmp/v2ray.\u001b[0m\r\nArchive:  /tmp/v2ray/v2ray.zip\r\n  inflating: /tmp/v2ray/config.json  \r\n   creating: /tmp/v2ray/doc/\r\n  inflating: /tmp/v2ray/doc/readme.md  \r\n  inflating: /tmp/v2ray/geoip.dat    \r\n  inflating: /tmp/v2ray/geosite.dat  \r\n   creating: /tmp/v2ray/systemd/\r\n  inflating: /tmp/v2ray/systemd/v2ray.service  \r\n   creating: /tmp/v2ray/systemv/\r\n  inflating: /tmp/v2ray/systemv/v2ray  \r\n  inflating: /tmp/v2ray/v2ctl        \r\n extracting: /tmp/v2ray/v2ctl.sig    \r\n  inflating: /tmp/v2ray/v2ray        \r\n extracting: /tmp/v2ray/v2ray.sig    \r\n  inflating: /tmp/v2ray/vpoint_socks_vmess.json  \r\n  inflating: /tmp/v2ray/vpoint_vmess_freedom.json  \r\n\u001b[36mShutting down V2Ray service.\u001b[0m\r\nFailed to stop v2ray.service: Unit v2ray.service not loaded.\r\n\u001b[33mFailed to shutdown V2Ray service.\u001b[0m\r\n\u001b[36mPORT:27576\u001b[0m\r\n\u001b[36mUUID:7601359e-fd17-43b2-9f7c-9c6fe34d8521\u001b[0m\r\nCreated symlink from /etc/systemd/system/multi-user.target.wants/v2ray.service to /etc/systemd/system/v2ray.service.\r\n\u001b[36mRestarting V2Ray service.\u001b[0m\r\n\u001b[32mV2Ray v4.18.0 is installed.\u001b[0m\r\nv2ray服务端安装成功\r\ncp /etc/v2ray/config.json /root/\r\nconfig文件备份成功\r\n", 
+    "stdout_lines": [
+        "安装v2ray服务端", 
+        "bash <(curl -L -s https://install.direct/go.sh)", 
+        "\u001b[36mInstalling V2Ray v4.18.0 on x86_64\u001b[0m", 
+        "\u001b[36mDownloading V2Ray: https://github.com/v2ray/v2ray-core/releases/download/v4.18.0/v2ray-linux-64.zip\u001b[0m", 
+        "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", 
+        "                                 Dload  Upload   Total   Spent    Left  Speed", 
+        "", 
+        "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", 
+        "100   608    0   608    0     0   1193      0 --:--:-- --:--:-- --:--:--  1194", 
+        "", 
+        "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", 
+        "  0 10.5M    0 50738    0     0  31088      0  0:05:56  0:00:01  0:05:55 54439", 
+        " 10 10.5M   10 1103k    0     0   426k      0  0:00:25  0:00:02  0:00:23  584k", 
+        " 93 10.5M   93  9.8M    0     0  2765k      0  0:00:03  0:00:03 --:--:-- 3421k", 
+        "100 10.5M  100 10.5M    0     0  2959k      0  0:00:03  0:00:03 --:--:-- 3661k", 
+        "\u001b[36mUpdating software repo\u001b[0m", 
+        "\u001b[36mInstalling unzip\u001b[0m", 
+        "debconf: unable to initialize frontend: Dialog", 
+        "debconf: (TERM is not set, so the dialog frontend is not usable.)", 
+        "debconf: falling back to frontend: Readline", 
+        "debconf: unable to initialize frontend: Readline", 
+        "debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.20.2 /usr/local/share/perl/5.20.2 /usr/lib/x86_64-linux-gnu/perl5/5.20 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.20 /usr/share/perl/5.20 /usr/local/lib/site_perl .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7, <> line 1.)", 
+        "debconf: falling back to frontend: Teletype", 
+        "Selecting previously unselected package unzip.", 
+        "(Reading database ... ", 
+        "(Reading database ... 5%", 
+        "(Reading database ... 10%", 
+        "(Reading database ... 15%", 
+        "(Reading database ... 20%", 
+        "(Reading database ... 25%", 
+        "(Reading database ... 30%", 
+        "(Reading database ... 35%", 
+        "(Reading database ... 40%", 
+        "(Reading database ... 45%", 
+        "(Reading database ... 50%", 
+        "(Reading database ... 55%", 
+        "(Reading database ... 60%", 
+        "(Reading database ... 65%", 
+        "(Reading database ... 70%", 
+        "(Reading database ... 75%", 
+        "(Reading database ... 80%", 
+        "(Reading database ... 85%", 
+        "(Reading database ... 90%", 
+        "(Reading database ... 95%", 
+        "(Reading database ... 100%", 
+        "(Reading database ... 21827 files and directories currently installed.)", 
+        "Preparing to unpack .../unzip_6.0-16+deb8u3_amd64.deb ...", 
+        "Unpacking unzip (6.0-16+deb8u3) ...", 
+        "Processing triggers for mime-support (3.58) ...", 
+        "Processing triggers for man-db (2.7.0.2-5) ...", 
+        "Setting up unzip (6.0-16+deb8u3) ...", 
+        "\u001b[36mExtracting V2Ray package to /tmp/v2ray.\u001b[0m", 
+        "Archive:  /tmp/v2ray/v2ray.zip", 
+        "  inflating: /tmp/v2ray/config.json  ", 
+        "   creating: /tmp/v2ray/doc/", 
+        "  inflating: /tmp/v2ray/doc/readme.md  ", 
+        "  inflating: /tmp/v2ray/geoip.dat    ", 
+        "  inflating: /tmp/v2ray/geosite.dat  ", 
+        "   creating: /tmp/v2ray/systemd/", 
+        "  inflating: /tmp/v2ray/systemd/v2ray.service  ", 
+        "   creating: /tmp/v2ray/systemv/", 
+        "  inflating: /tmp/v2ray/systemv/v2ray  ", 
+        "  inflating: /tmp/v2ray/v2ctl        ", 
+        " extracting: /tmp/v2ray/v2ctl.sig    ", 
+        "  inflating: /tmp/v2ray/v2ray        ", 
+        " extracting: /tmp/v2ray/v2ray.sig    ", 
+        "  inflating: /tmp/v2ray/vpoint_socks_vmess.json  ", 
+        "  inflating: /tmp/v2ray/vpoint_vmess_freedom.json  ", 
+        "\u001b[36mShutting down V2Ray service.\u001b[0m", 
+        "Failed to stop v2ray.service: Unit v2ray.service not loaded.", 
+        "\u001b[33mFailed to shutdown V2Ray service.\u001b[0m", 
+        "\u001b[36mPORT:27576\u001b[0m", 
+        "\u001b[36mUUID:7601359e-fd17-43b2-9f7c-9c6fe34d8521\u001b[0m", 
+        "Created symlink from /etc/systemd/system/multi-user.target.wants/v2ray.service to /etc/systemd/system/v2ray.service.", 
+        "\u001b[36mRestarting V2Ray service.\u001b[0m", 
+        "\u001b[32mV2Ray v4.18.0 is installed.\u001b[0m", 
+        "v2ray服务端安装成功", 
+        "cp /etc/v2ray/config.json /root/", 
+        "config文件备份成功"
+    ]
+}
+45.32.42.33 | CHANGED => {
+    "changed": true, 
+    "checksum": "642c4f754bbfa22a465305bf9f28f0be6b8d51d3", 
+    "dest": "/etc/v2ray/config.json", 
+    "gid": 0, 
+    "group": "root", 
+    "md5sum": "e1c9ae8913976ca140c692152b5ade95", 
+    "mode": "0644", 
+    "owner": "root", 
+    "size": 1448, 
+    "src": "/root/.ansible/tmp/ansible-tmp-1557995583.0-216556951120869/source", 
+    "state": "file", 
+    "uid": 0
+}
+2019-05-16 04:33:11 v2ray服务端安装完毕！
+2019-05-16 04:33:11 获取v2ray服务器的IP\PORT\ID
+45.32.42.33 | CHANGED | rc=0 >>
+{
+  "inbounds": [{
+    "port": 27576,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "7601359e-fd17-43b2-9f7c-9c6fe34d8521",
+          "level": 1,
+          "alterId": 64
+        }
+      ]
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  },{
+    "protocol": "blackhole",
+    "settings": {},
+    "tag": "blocked"
+  }],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
+}
+45.32.42.33 | CHANGED | rc=0 >>
+{
+  "log" : {
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log",
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "port": 31139,
+    "protocol": "vmess", 
+    "settings": {
+      "clients": [
+        {
+          "id": "805ed8a8-7967-49c0-9f5d-057e86920c49",
+          "level": 1,
+          "alterId": 64
+        }
+      ],
+      "detour":{
+        "to":"dynamicPort"
+      }
+    },
+    "streamSettings":{
+      "network":"kcp"
+    }
+  },
+  "inboundDetour":[
+    {
+      "protocol": "vmess",
+      "port": "10000-20000",
+      "tag": "dynamicPort",       
+      "settings": {
+        "default": {
+          "level": 1,
+          "alterId": 32
+        }
+      },
+      "allocate": {            
+        "strategy": "random",  
+        "concurrency": 2,      
+        "refresh": 3           
+      },
+      "streamSettings": {
+        "network": "kcp"
+      }
+    }
+  ],
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
+  },
+  "outboundDetour": [
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+ "transport":{
+      "tcpSettings":{
+         "connectionReuse":true
+      },
+      "kcpSettings":{ 
+         "mtu":1350,
+         "tti":20,
+         "uplinkCapacity":100,
+         "downlinkCapacity":100,
+         "congestion":false,
+         "readBufferSize":5,
+         "writeBufferSize":5,
+         "header":{
+            "type":"utp"
+         }
+      }
+   }
+}
+2019-05-16 04:33:33 45.32.42.33     "port": 27576,           "id": "7601359e-fd17-43b2-9f7c-9c6fe34d8521",
+2019-05-16 04:33:33 正在修改-----------------
+45.32.42.33 | CHANGED | rc=0 >>
+
+45.32.42.33 | CHANGED | rc=0 >>
+
+45.32.42.33 | CHANGED | rc=0 >>
+
+45.32.42.33 | CHANGED | rc=0 >>
+
+2019-05-16 04:33:48 修改完毕，v2ray服务端配置成功!重启v2ray服务器
+45.32.42.33 | CHANGED | rc=0 >>
+
+2019-05-16 04:33:52 v2ray服务重启成功！
+2019-05-16 04:33:52 -------------------
+2019-05-16 04:34:52 更新局域网的网关服务
+2019-05-16 04:34:52 正在验证gw 分组是否存在,请稍后...
+2019-05-16 04:34:54 验证成功gw分组存在！分组名为gw
+2019-05-16 04:35:54 正在验证gmasterw 分组是否存在,请稍后...
+2019-05-16 04:36:09 验证成功gmasterw 分组存在！分组名为gmasterw
+2019-05-16 04:36:17 v2ray_server的IP是45.32.42.33
+2019-05-16 04:36:25     "port": 27576,
+2019-05-16 04:36:36           "id": "7601359e-fd17-43b2-9f7c-9c6fe34d8521",
+2019-05-16 04:36:36 下一步需要修改gw 组的配置文件，现在正在形成参数
+2019-05-16 04:36:36 修改gw的配置文件/etc/v2ray/config.json,/opt/v2ray-firewall
+2019-05-16 04:36:36 1.拼接ip地址
+2019-05-16 04:36:36 "address":"45.32.42.33",
+2019-05-16 04:36:36 2.拼接端口号
+2019-05-16 04:36:36 "port": 27576,
+2019-05-16 04:36:36 3.拼接id
+2019-05-16 04:36:36 "id": "7601359e-fd17-43b2-9f7c-9c6fe34d8521",
+2019-05-16 04:36:36 执行修改局域网GW的配置文件
+2019-05-16 04:36:36 配置ip地址
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-16 04:36:38 配置端口
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-16 04:36:40 配置id
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-16 04:36:41 配置防火墙
+2019-05-16 04:36:41 1.拼接防火墙
+2019-05-16 04:36:41 iptables -t nat -A V2RAY -d 45.32.42.33 -j RETURN
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-16 04:36:42 重启gw的v2ray服务
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+10.24.1.254 | CHANGED | rc=0 >>
+
+2019-05-16 04:36:46 服务重启成功！
+2019-05-16 04:36:46 配置完毕！
+                                                                              
+2019-05-16 04:36:46 检测的网关名为ggww
+2019-05-16 04:36:48 获取的v2ray服务器IP地址为45.76.219.250
+2019-05-16 04:36:48 收集vultr的服务器列表
+2019-05-16 04:36:52 ggww 调用API成功，开始执行监控程序
+2019-05-16 04:36:52 获取的v2ray服务器subid为 24783692
+2019-05-16 04:36:52 获取的v2ray服务器DCID为 25
+2019-05-16 04:36:52 获取的v2ray服务器label为gslavew
+2019-05-16 04:36:53 获取v2ray服务器宽带使用率为 34155197863 字节
+2019-05-16 04:36:53 获取的宽带使用率为31 G
+2019-05-16 04:36:53 流量小于50G，监控结束！
+                                                                              
+2019-05-16 04:36:53 检测的网关名为dns
+2019-05-16 04:36:56 获取的v2ray服务器IP地址为108.160.133.156
+2019-05-16 04:36:56 收集vultr的服务器列表
+2019-05-16 04:36:57 dns 调用API成功，开始执行监控程序
+2019-05-16 04:36:57 获取的v2ray服务器subid为 24750017
+2019-05-16 04:36:57 获取的v2ray服务器DCID为 25
+2019-05-16 04:36:57 获取的v2ray服务器label为ddnnss
+2019-05-16 04:36:59 获取v2ray服务器宽带使用率为 9131414401 字节
+2019-05-16 04:36:59 获取的宽带使用率为8 G
+2019-05-16 04:36:59 流量小于50G，监控结束！
+                                                                              
+2019-05-16 04:36:59 检测的网关名为wifigw
+2019-05-16 04:37:01 获取的v2ray服务器IP地址为202.182.100.205
+2019-05-16 04:37:01 收集vultr的服务器列表
+2019-05-16 04:37:03 wifigw 调用API成功，开始执行监控程序
+2019-05-16 04:37:03 获取的v2ray服务器subid为 24750075
+2019-05-16 04:37:03 获取的v2ray服务器DCID为 25
+2019-05-16 04:37:03 获取的v2ray服务器label为wimasterfi
+2019-05-16 04:37:11 获取v2ray服务器宽带使用率为 16630410 字节
+2019-05-16 04:37:11 获取的宽带使用率为0 G
+2019-05-16 04:37:11 流量小于50G，监控结束！
+                                                                              
+2019-05-16 04:37:11 检测的网关名为wifiggww
+2019-05-16 04:37:13 获取的v2ray服务器IP地址为108.61.162.89
+2019-05-16 04:37:13 收集vultr的服务器列表
+2019-05-16 04:37:20 wifiggww 调用API成功，开始执行监控程序
+2019-05-16 04:37:20 获取的v2ray服务器subid为 24759568
+2019-05-16 04:37:20 获取的v2ray服务器DCID为 25
+2019-05-16 04:37:20 获取的v2ray服务器label为wislavefi
+2019-05-16 04:37:22 获取v2ray服务器宽带使用率为 6069240 字节
+2019-05-16 04:37:22 获取的宽带使用率为0 G
+2019-05-16 04:37:22 流量小于50G，监控结束！
+                                                                              
