@@ -1,0 +1,23 @@
+#!/bin/bash -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+cd /root/filebeat && nohup ./filebeat  >> /root/filebeat/filebeat.log 2>&1 &
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+sleep 10
+
+sh /opt/v2ray-firewall
+
+modprobe ip_vs ip_vs_rr ip_vs_wrr
+nohup sh  /etc/keepalived/monitor_dig.sh >> /etc/keepalived/monitor_dig.log 2>&1 &
+nohup sh  /etc/keepalived/udp_check.sh   >> /etc/keepalived/udp_check.log   2>&1 &
+/etc/keepalived/lvs_dr.sh start
+cd /root/filebeat && nohup ./filebeat  >> /root/filebeat/filebeat.log 2>&1 &
+exit 0
